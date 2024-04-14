@@ -1,37 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>nom fichier</th>
-            <th>num phrase</th>
-            <th>segment annoté</th>
-            <th>accompli</th>
-            <th>nature</th>
-            <th>proces</th>
-            <th>temps</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for obj in queryset %}
-        <tr>
-            <td>{{ obj.id }}</td>
-            <td>{{ obj.nom_fichier }}</td>
-            <td>{{ obj.num_phrase }}</td>
-            <td>{{ obj.segment_annote }}</td>
-            <td>{{ obj.accompli }}</td>
-            <td>{{ obj.nature }}</td>
-            <td>{{ obj.proces }}</td>
-            <td>{{ obj.temps }}</td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Dynamique table and query search</title>
+        <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="center-block"><h1 class="text-center">Dynamique table</h1></div>
+
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="http://127.0.0.1:8000/">Return to home page</a>
+                </div>
+                <div class="">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Accompli
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" value="">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">aucun</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="accompli" value="oui">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">oui</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="accompli" value="non">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">non</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Nature
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden"  value="">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">aucun</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="nature" value="crea">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">crea</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="nature" value="modif">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">modif</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="nature" value="destr">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">destr</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="nature" value="repr">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">repr</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="nature" value="maint">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">maint</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="nature" value="abs">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">abs</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Proces
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden"  value="">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">aucun</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="proces" value="inch">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">inch</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="proces" value="dur">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">dur</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="proces" value="termin">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">termin</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="proces" value="iter">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">iter</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="proces" value="progr">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">progr</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Temps
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden"  value="">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">aucun</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="temps" value="pas">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">pas</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="temps" value="pres">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">pres</button>
+                                    </form>
+                                </li>
+
+                                <li>
+                                    <form method="get">
+                                        <input type="hidden" name="temps" value="fut">
+                                        <button type="submit" class="btn-link" style="margin-left: 20px">fut</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>nom fichier</th>
+                    <th>num phrase</th>
+                    <th>segment annoté</th>
+                    <th>accompli</th>
+                    <th>nature</th>
+                    <th>proces</th>
+                    <th>temps</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in queryset %}
+                <tr>
+                    <td>{{ obj.id }}</td>
+                    <td>{{ obj.nom_fichier }}</td>
+                    <td>{{ obj.num_phrase }}</td>
+                    <td>{{ obj.segment_annote }}</td>
+                    <td>{{ obj.accompli }}</td>
+                    <td>{{ obj.nature }}</td>
+                    <td>{{ obj.proces }}</td>
+                    <td>{{ obj.temps }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    </body>
 </html>

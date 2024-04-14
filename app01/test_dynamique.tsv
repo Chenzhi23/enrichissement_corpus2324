@@ -1,4 +1,4 @@
-Nom_fichier	Numero_Phrase	Segment_Annoté	Accompli	Nature	Temps	Proces
+Nom_fichier	Numero_Phrase	Segment_Annoté	Accompli	Nature	Proces	Temps
 test_node_2005SCE.xml	1					
 test_node_2005SCE.xml	2					
 test_node_2005SCE.xml	3					
@@ -61,10 +61,10 @@ test_node_2005SCE.xml	58
 test_node_2005SCE.xml	59					
 test_node_2005SCE.xml	60					
 test_node_2005SCE.xml	61					
-test_node_2005SCE.xml	62	rénovation du Chiado		repr		iter
+test_node_2005SCE.xml	62	rénovation du Chiado		repr	iter	
 test_node_2005SCE.xml	63	construire en continuité		crea		
 test_node_2005SCE.xml	64					
-test_node_2005SCE.xml	65	opérations de restructuration de logements sociaux		repr		iter
+test_node_2005SCE.xml	65	opérations de restructuration de logements sociaux		repr	iter	
 test_node_2005SCE.xml	66					
 test_node_2005SCE.xml	67					
 test_node_2005SCE.xml	68					
@@ -81,9 +81,9 @@ test_node_2005SCE.xml	77
 test_node_2005SCE.xml	78	la construction		crea		
 test_node_2005SCE.xml	79					
 test_node_2005SCE.xml	80	la conquête de terrain		crea		
-test_node_2005SCE.xml	81	s’est agrandie successivement	non	crea		iter
+test_node_2005SCE.xml	81	s’est agrandie successivement	non	crea	iter	
 test_node_2005SCE.xml	82	la nouvelle extension		crea		
-test_node_2005SCE.xml	83	la réalisation	non	crea		dur
+test_node_2005SCE.xml	83	la réalisation	non	crea	dur	
 test_node_2005SCE.xml	84	a été multipliée par deux par rapport à ce qui était prévu				
 test_node_2005SCE.xml	85	développement de cette région		crea		
 test_node_2005SCE.xml	86	l’extension de la ville		crea		
@@ -104,7 +104,7 @@ test_node_2005SCE.xml	99
 test_node_2005SCE.xml	100	villes fondées	oui	crea		
 test_node_2005SCE.xml	101					
 test_node_2005SCE.xml	102	L’implantation espagnole		crea		
-test_node_2005SCE.xml	103	multiples transformations		modif		iter
+test_node_2005SCE.xml	103	multiples transformations		modif	iter	
 test_node_2005SCE.xml	103	nouveaux développements		crea		
 test_node_2005SCE.xml	104	la construction		crea		
 test_node_2005SCE.xml	105	le tracé	non	crea		
@@ -115,7 +115,7 @@ test_node_2005SCE.xml	107	Le dessin des espaces publics et de l’architecture	n
 test_node_2005SCE.xml	108	la nouvelle architecture de la ville				
 test_node_2005SCE.xml	109					
 test_node_2005SCE.xml	110	a été dessinée une allée plantée d’arbres de grandes dimensions	non	crea		
-test_node_2005SCE.xml	111	la Baixa de Lisbonne, entièrement reconstruite	oui	repr+crea		iter
+test_node_2005SCE.xml	111	la Baixa de Lisbonne, entièrement reconstruite	oui	repr+crea	iter	
 test_node_2005SCE.xml	112					
 test_node_2005SCE.xml	113					
 test_node_2005SCE.xml	114					
@@ -124,12 +124,12 @@ test_node_2005SCE.xml	116
 test_node_2005SCE.xml	117					
 test_node_2005SCE.xml	118					
 test_node_2005SCE.xml	119	L’intervention au Chiado				
-test_node_2005SCE.xml	119	la reconstruction de certaines parties de ce grand édifice préfabriqué qu’est la Baixa		repr+crea		iter
+test_node_2005SCE.xml	119	la reconstruction de certaines parties de ce grand édifice préfabriqué qu’est la Baixa		repr+crea	iter	
 test_node_2005SCE.xml	120	l’intervention du XVIIIe siècle				
 test_node_2005SCE.xml	121	mal construites		crea		
 test_node_2005SCE.xml	122	les façades tomberaient		destr		
 test_node_2005SCE.xml	123					
-test_node_2005SCE.xml	124	ont été reconstruits et restitués à leur fonction d’origine	oui	repr+crea		iter
+test_node_2005SCE.xml	124	ont été reconstruits et restitués à leur fonction d’origine	oui	repr+crea	iter	
 test_node_2005SCE.xml	125					
 test_node_2005SCE.xml	126					
 test_node_2005SCE.xml	127					
@@ -156,8 +156,8 @@ test_node_2005SCE.xml	147	délimiter le territoire
 test_node_2005SCE.xml	147	interventions disséminées				
 test_node_2005SCE.xml	148	la mise en œuvre du projet urbain				
 test_node_2005SCE.xml	149	les interventions innovantes				
-test_node_2005SCE.xml	149	l’agonie du processus	non			dur
-test_node_2005SCE.xml	149	la conviction de l’absence d’un futur	non	abs	fut	
+test_node_2005SCE.xml	149	l’agonie du processus	non		dur	
+test_node_2005SCE.xml	149	la conviction de l’absence d’un futur	non	abs		fut
 test_node_2005SCE.xml	150					
 test_node_2005SCE.xml	151	construire sa propre maison	non	crea		
 test_node_2005SCE.xml	152	la construction de bâtiments hauts	non	crea		
@@ -188,7 +188,7 @@ test_node_2005SCE.xml	173	l’intervention
 test_node_2005SCE.xml	174	de nombreuses constructions	non	crea		
 test_node_2005SCE.xml	175					
 test_node_2005SCE.xml	176	les constructions nouvelles		crea		
-test_node_2005SCE.xml	176	la régénération des espaces ouverts des maisons préexistantes		repr		iter
+test_node_2005SCE.xml	176	la régénération des espaces ouverts des maisons préexistantes		repr	iter	
 test_node_2005SCE.xml	177					
 test_node_2005SCE.xml	178					
 test_node_2005SCE.xml	179	construire uniquement des maisons à patio		crea		
@@ -205,9 +205,9 @@ test_node_2005SCE.xml	188	la localisation		crea
 test_node_2005SCE.xml	189	la création d’une série d’espaces interstitiels		crea		
 test_node_2005SCE.xml	189	les possibilités de projets	non			
 test_node_2005SCE.xml	190	lieux non finis	non			
-test_node_2005SCE.xml	191	ces lieux commencent à être remplis	non	crea		inch
+test_node_2005SCE.xml	191	ces lieux commencent à être remplis	non	crea	inch	
 test_node_2005SCE.xml	192					
-test_node_2005SCE.xml	193	La reconstruction des villes détruites		crea+repr		iter
+test_node_2005SCE.xml	193	La reconstruction des villes détruites		crea+repr	iter	
 test_node_2005SCE.xml	193	villes détruites				
 test_node_2005SCE.xml	194	La construction de villes nouvelles ou de quartiers de ville		crea		
 test_node_2005SCE.xml	194	développement économique et urbain		crea		
@@ -219,11 +219,11 @@ test_node_2005SCE.xml	199
 test_node_2005SCE.xml	200	des propositions d’intervention nouvelles	non			
 test_node_2005SCE.xml	200	une sorte de lutte urbaine				
 test_node_2005SCE.xml	200	la transformation de la ville existante		modif		
-test_node_2005SCE.xml	200	le processus de destruction-construction	non	destr+crea		dur
+test_node_2005SCE.xml	200	le processus de destruction-construction	non	destr+crea	dur	
 test_node_2005SCE.xml	200	son développement aux XVIIIe et XIXe siècles		crea		
-test_node_2005SCE.xml	200	réhabilitation		repr		iter
-test_node_2005SCE.xml	201	Cet effort rénovateur		repr		iter
-test_node_2005SCE.xml	202	la rénovation urbaine du quartier de Schilderswick		repr		iter
+test_node_2005SCE.xml	200	réhabilitation		repr	iter	
+test_node_2005SCE.xml	201	Cet effort rénovateur		repr	iter	
+test_node_2005SCE.xml	202	la rénovation urbaine du quartier de Schilderswick		repr	iter	
 test_node_2005SCE.xml	202	projet d’architecture	non			
 test_node_2005SCE.xml	203					
 test_node_2005SCE.xml	204					
@@ -239,7 +239,7 @@ test_node_2005SCE.xml	210	les profondes modifications de la structure urbaine		m
 test_node_2005SCE.xml	210	la concentration systématique des zones commerciales				
 test_node_2005SCE.xml	210	une « transformation participative »		modif		
 test_node_2005SCE.xml	210	la dégradation environnante		modif		
-test_node_2005SCE.xml	211	La rénovation		repr		iter
+test_node_2005SCE.xml	211	La rénovation		repr	iter	
 test_node_2005SCE.xml	212					
 test_node_2005SCE.xml	213					
 test_node_2005SCE.xml	214					
@@ -259,7 +259,7 @@ test_node_2005SCE.xml	226	L’implantation au cœur de la ville d’un grand ens
 test_node_2005SCE.xml	226	se développe démesurément				
 test_node_2005SCE.xml	227	l’interruption du système de rues et de l’ancienne logique d’occupation du sol				
 test_node_2005SCE.xml	228	une décadence et une dégradation		modif		
-test_node_2005SCE.xml	229	ce processus de dégradation et de perte de caractère du centre historique	non	modif		dur
+test_node_2005SCE.xml	229	ce processus de dégradation et de perte de caractère du centre historique	non	modif	dur	
 test_node_2005SCE.xml	230					
 test_node_2005SCE.xml	231					
 test_node_2005SCE.xml	232					
@@ -275,7 +275,7 @@ test_node_2005SCE.xml	241	les transformations	oui	modif
 test_node_2005SCE.xml	241	ces bouleversements				
 test_node_2005SCE.xml	242					
 test_node_2005SCE.xml	243					
-test_node_2005SCE.xml	244	permette de recréer un rapport entre la rue et les tours		repr		iter
+test_node_2005SCE.xml	244	permette de recréer un rapport entre la rue et les tours		repr	iter	
 test_node_2005SCE.xml	245					
 test_node_2005SCE.xml	246	isoler les tours				
 test_node_2005SCE.xml	246	libérer des volumes parasites de deux ou trois étages qui s’agrippent à elles				
@@ -308,7 +308,7 @@ test_node_2005SCE.xml	267
 test_node_2005SCE.xml	268	créer comme une grille		crea		
 test_node_2005SCE.xml	269					
 test_node_2005SCE.xml	270					
-test_node_2005SCE.xml	271	La perpétuelle transformation des villes	non	modif		dur
+test_node_2005SCE.xml	271	La perpétuelle transformation des villes	non	modif	dur	
 test_node_2005SCE.xml	271	leur consolidation				
 test_node_2005SCE.xml	272					
 test_node_2005SCE.xml	273					
@@ -317,7 +317,7 @@ test_node_2005SCE.xml	275
 test_node_2005SCE.xml	276					
 test_node_2005SCE.xml	277					
 test_node_2005SCE.xml	278	le développement des villes		crea		
-test_node_2005SCE.xml	278	des transformations en cours	non	modif		dur
+test_node_2005SCE.xml	278	des transformations en cours	non	modif	dur	
 test_node_2005SCE.xml	278	des persistances		abs		
 test_node_2005SCE.xml	279					
 test_node_2005SCE.xml	280					
