@@ -1,0 +1,34 @@
+Nom_fichier	Numéro_Phrase	Dynamique	Segment_Annoté	Type
+test.xml	1	Conserver toutes les frontières	toutes les frontières	obj
+test.xml	1	conserver tous les gabarits	tous les gabarits	obj
+test.xml	1	conserver toutes les campagnes	toutes les campagnes	obj
+test.xml	1	n'admettre la construction que parcimonieusement		
+test.xml	2	la coordination et l'établissement des projets		
+test.xml	2	coordination du projet d'aménagement de la ville de Paris et du projet régional approuvé	la ville de Paris	obj
+test.xml	2	établissement du projet régional étendu à toute la région parisienne	toute la région parisienne	obj
+test.xml	4	une décentralisation de certaines industries	certaines industries	obj
+test.xml	4	le maintien	dans cette région	loc
+test.xml	4	le développement	dans cette région	loc
+test.xml	5	construire des cités de 20 ou 30.000 habitants	des cités de 20 ou 30.000 habitants	obj
+test.xml	5	organiser	des cités de 20 ou 30.000 habitants	obj
+test.xml	5	leur apporter des activités indispensables	des cités de 20 ou 30.000 habitants	obj
+test.xml	6	une décentralisation vers la Province des activités secondaires et tertiaires	activités secondaires et tertiaires	obj
+test.xml	6	un desserrement de la Capitale	la Capitale	obj
+test.xml	6	une réorganisation et à une restructuration de la banlieue	autour de nouveaux noyaux urbains principaux et secondaires	loc
+test.xml	6	nouveaux noyaux urbains principaux et secondaires	noyaux urbains principaux et secondaires	obj
+test.xml	8	façonnent le relief	le relief	obj
+test.xml	8	plissent	le relief	obj
+test.xml	8	perforent	le relief	obj
+test.xml	8	produisent autant de ruptures à franchir que de situations à exploiter	situations à exploiter	obj
+test.xml	9	Les grandes transformations en cours	dans la métropole	loc
+test.xml	9	reconstruire des continuitéstest obj test	dans toute la métropole	loc
+test.xml	9	renforcer les relations horizontales	dans toute la métropole	loc
+test.xml	9	conformer les lieux en espaces de vie	les lieux	obj
+test.xml	9	stables	les lieux	obj
+test.xml	9	temporaires	les lieux	obj
+test.xml	9	redécouvrir la forme du territoire	la forme du territoire	obj
+test.xml	10	proposons trois lignes de continuité principales	au pied des coteaux et dans une zone plus élargie	loc
+test.xml	10	prolongé	tramway existant	obj
+test.xml	10	en projet	tramway existant	obj
+test.xml	11	est devenu un espace de liberté	Tempelhof	obj
+test.xml	12	n’ai d’ailleurs pas réalisé un seul parc ou jardin	un seul parc ou jardin	obj

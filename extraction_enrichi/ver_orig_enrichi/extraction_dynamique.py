@@ -50,8 +50,8 @@ def extract_dynamique_to_tsv(file_path, output_path):
                     output_file.write(output_line)
 
 # 更新文件路径
-input_file_path_detailed = 'test_node_2005SCE.xml'  # 使用上传的文件路径
-output_file_path_detailed = 'test_node_2005SCE_dynamique.tsv'  # 更新输出文件的路径
+input_file_path_detailed = 'test.xml'  # 使用上传的文件路径
+output_file_path_detailed = 'test_dyn.tsv'  # 更新输出文件的路径
 
 # 调用函数
 extract_dynamique_to_tsv(input_file_path_detailed, output_file_path_detailed)

@@ -23,26 +23,32 @@ def extract_new_content_to_tsv(file_path, output_path):
     with open(output_path, 'w', encoding='utf-8') as output_file:
         # 写入标题行
         output_file.write("Nom_fichier\tNuméro_Phrase\tDynamique\tCause\tRes\tObj\n")
-        
+
         # 遍历每个<phrase>元素
         for i, phrase in enumerate(root.findall('.//phrase'), start=1):
+            cause_text = html.unescape(get_element_text(phrase.find('.//cause'))) if phrase.find(
+                './/cause') is not None else ''
+            res_text = html.unescape(get_element_text(phrase.find('.//res'))) if phrase.find(
+                './/res') is not None else ''
+            obj_text = html.unescape(get_element_text(phrase.find('.//obj'))) if phrase.find(
+                './/obj') is not None else ''
+
+            # 如果 cause、res 和 obj 都为空，则跳过 dyn 的内容
+            if not any([cause_text, res_text, obj_text]):
+                continue
+
             dyns = phrase.findall('.//dyn')
-            if not dyns:  # 如果没有dyn元素，写入一行，但仅含Numéro_Phrase和Nom_fichier
-                output_file.write(f"{nom_fichier}\t{i}\t\t\t\t\n")
-            else:
-                for dyn in dyns:
+            for dyn in dyns:
                     dyn_text = html.unescape(get_element_text(dyn))
-                    cause_text = html.unescape(get_element_text(phrase.find('.//cause'))) if phrase.find('.//cause') is not None else ''
-                    res_text = html.unescape(get_element_text(phrase.find('.//res'))) if phrase.find('.//res') is not None else ''
-                    obj_text = html.unescape(get_element_text(phrase.find('.//obj'))) if phrase.find('.//obj') is not None else ''
-                    
+
                     # 格式化并写入数据
                     output_line = f"{nom_fichier}\t{i}\t{dyn_text}\t{cause_text}\t{res_text}\t{obj_text}\n"
                     output_file.write(output_line)
 
+
 # 更新文件路径
-input_file_path = 'test_node_1965.xml'  # 请替换为您的输入文件路径
-output_file_path = 'test_node_1965_nouvelle.tsv'  # 请替换为您的输出文件路径
+input_file_path = 'test.xml'  # 请替换为您的输入文件路径
+output_file_path = 'test_nouvelle_output.tsv'  # 请替换为您的输出文件路径
 
 # 调用函数
 extract_new_content_to_tsv(input_file_path, output_file_path)

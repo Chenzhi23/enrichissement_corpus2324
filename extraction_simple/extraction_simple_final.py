@@ -80,13 +80,13 @@ def extract_content_to_tsv(file_path, output_path):
 
                     output_line = f"{nom_fichier}\t{i}\t{dyn_text}\t{lieu_obj_text}\t{lieu_loc_text}\t{tps_text}\t{act_text}\t{perc_text}\t{doc_text}\n"
                     output_file.write(output_line)
-            else:
+            #else:
                 # 如果没有dyn，仍写入一行仅含Numéro_Phrase和Nom_fichier
-                output_file.write(f"{nom_fichier}\t{i}\t\t\t\t\t\t\t\n")
+                #output_file.write(f"{nom_fichier}\t{i}\t\t\t\t\t\t\t\n")
 
 # 替换为您的文件路径
-input_file_path = '2003-Corajoud_20230710.xml'
-output_file_path = '2003-Corajoud_20230710_simple.tsv'
+input_file_path = '1959-MinistereConstructionNoteEtudeINSEE_20230710.xml'
+output_file_path = 'test_simple.tsv'
 
 # 调用函数
 extract_content_to_tsv(input_file_path, output_file_path)

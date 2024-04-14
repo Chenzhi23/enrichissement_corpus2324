@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <root>
-  <phrase>﻿Les propositions du groupe d'études de l’I.N.S.E.E.</phrase>
-  <phrase>sur les limites de l'agglomération parisienne permettent de bien augurer de la conclusion de ses travaux, dont l'objet est une définition unique de l'agglomération.</phrase>
+  <phrase>﻿Les propositions du groupe d'études de l’I.N.S.E.E. sur les limites de l'agglomération parisienne permettent de bien augurer de la conclusion de ses travaux, dont l'objet est une définition unique de l'agglomération.</phrase>
   <phrase>Toutefois, certaines communes situées sur les "franges" de l'agglomération sont encore susceptibles d'être discutées.</phrase>
   <phrase>Tel est le cas du secteur Nord (GONESSE, ARNOUVILLE-les-GONESSE, VILLIERS-le-BEL, ECOUEN, EZANVILLE, DOMONT, PISCOP, et St-BRICE).</phrase>
   <phrase><lieu type="loc" n="1">Dans la plupart de ces communes</lieu>, <lieu type="obj" n="1">des immeubles d'habitations</lieu> <dyn n="1">ont été édifiés</dyn> <tps n="1">depuis quelques années</tps>, ce qui pourrait laisser supposer que <dyn n="2">l'urbanisation de <lieu type="obj" n="2">ce secteur</lieu></dyn> sera encore développée <tps n="2">dans l'avenir</tps>.</phrase>
