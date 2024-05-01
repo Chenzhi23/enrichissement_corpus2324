@@ -220,7 +220,7 @@
   <phrase>Troyes	193.000 128 .000 85.000		220.000 145.000 98.000</phrase>
   <phrase>2,2 %	ENSEMBLE	1.</phrase>
   <phrase>104.000		1.304.000</phrase>
-  <phrase><dyn accompli="oui" nature="crea">CROISSANCE DES <lieu type="obj">AGGLOMÉRATIONS MOYENNES	DU BASSIN PARISIEN</lieu></dyn>	<tps axe_temp="pas" type="dur" absolu="oui">1954- 1962</tps></phrase>
+  <phrase><dyn accompli="oui" nature="crea">CROISSANCE DES <lieu type="obj">AGGLOMÉRATIONS MOYENNES DU BASSIN PARISIEN</lieu></dyn>	<tps axe_temp="pas" type="dur" absolu="oui">1954- 1962</tps></phrase>
   <phrase>TAUX ANNUEL MOYEN DE CROISSANCE	AGGLOMÉRATIONS	1954	POPULATION 1	1962</phrase>
   <phrase>6,5 %	Évreux	25.000		42.000</phrase>
   <phrase>4,5 %	Saint-Dizier	26.000		36.000</phrase>

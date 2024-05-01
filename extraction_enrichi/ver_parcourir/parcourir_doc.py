@@ -28,30 +28,27 @@ def extract_doc_content_to_tsv(directory_path, output_path):
                         dyns = phrase.findall('.//dyn')
                         docs = phrase.findall('.//doc')
 
-                        doc_elements = {}
-                        if docs:
-                            for doc in docs:
-                                n = doc.get('n')
-                                if n:
-                                    n_values = n.split('+')
-                                    for n_value in n_values:
-                                        doc_elements[n_value.strip()] = doc
+                        # 将dyn和act根据n属性或内部关系进行匹配
+                        dyn_map = {dyn.get('n'): dyn for dyn in dyns if dyn.get('n')}
+                        default_dyn = [dyn for dyn in dyns if not dyn.get('n')]
+
+                        for doc in docs:
+                            doc_text = html.unescape(get_element_text(doc)).strip()
+                            doc_n = doc.get('n')
+
+                            if doc_n:
+                                matched_dyns = [dyn_map[n] for n in doc_n.split('+') if n in dyn_map]
+                            else:
+                                parent_dyn = next((dyn for dyn in dyns if doc in list(dyn.iter())), None)
+                                if parent_dyn:
+                                    matched_dyns = [parent_dyn]
                                 else:
-                                    doc_elements[None] = doc
-                        else:
-                            continue
+                                    matched_dyns = default_dyn
 
-                        for dyn in dyns:
-                            n_value = dyn.get('n')
-                            dyn_text = html.unescape(get_element_text(dyn)).strip()
-                            doc_text = ''
-
-                            doc_element = doc_elements.get(n_value.strip() if n_value else None)
-                            if doc_element is not None:
-                                doc_text = html.unescape(get_element_text(doc_element)).strip()
-
-                            output_line = f"{nom_fichier}\t{i}\t{dyn_text}\t{doc_text}\n"
-                            output_file.write(output_line)
+                            for dyn in matched_dyns:
+                                dyn_text = html.unescape(get_element_text(dyn)).strip()
+                                output_line = f"{nom_fichier}\t{i}\t{dyn_text}\t{doc_text}\n"
+                                output_file.write(output_line)
 
 # 请替换为你的文件夹路径
 directory_path = '../../corpus_xml/CE'

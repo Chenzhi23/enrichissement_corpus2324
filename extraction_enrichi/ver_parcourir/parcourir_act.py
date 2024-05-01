@@ -11,11 +11,12 @@ def get_element_text(element):
             text += child.tail
     return text.strip()
 
+
 def extract_act_content_to_tsv(directory_path, output_path):
     """遍历指定文件夹中的所有XML文件，提取act内容，并将其保存到一个TSV文件中。"""
     with open(output_path, 'w', encoding='utf-8') as output_file:
         output_file.write("Nom_fichier\tNuméro_Phrase\tDynamique\tSegment_Annoté\tType\n")
-        
+
         for root, dirs, files in os.walk(directory_path):
             for file in files:
                 if file.endswith(".xml"):
@@ -28,32 +29,29 @@ def extract_act_content_to_tsv(directory_path, output_path):
                         dyns = phrase.findall('.//dyn')
                         acts = phrase.findall('.//act')
 
-                        act_elements = {}
-                        if acts:
-                            for act in acts:
-                                n = act.get('n')
-                                if n:
-                                    n_values = n.split('+')
-                                    for n_value in n_values:
-                                        act_elements[n_value.strip()] = act
+                        # 将dyn和act根据n属性或内部关系进行匹配
+                        dyn_map = {dyn.get('n'): dyn for dyn in dyns if dyn.get('n')}
+                        default_dyn = [dyn for dyn in dyns if not dyn.get('n')]
+
+                        for act in acts:
+                            act_text = html.unescape(get_element_text(act)).strip()
+                            act_type = act.get('type', '').strip()
+                            act_n = act.get('n')
+
+                            if act_n:
+                                matched_dyns = [dyn_map[n] for n in act_n.split('+') if n in dyn_map]
+                            else:
+                                # 检查act是否内嵌在某个dyn中
+                                parent_dyn = next((dyn for dyn in dyns if act in list(dyn.iter())), None)
+                                if parent_dyn:
+                                    matched_dyns = [parent_dyn]
                                 else:
-                                    act_elements[None] = act
-                        else:
-                            continue
-                        
-                        for dyn in dyns:
-                            n_value = dyn.get('n')
-                            dyn_text = html.unescape(get_element_text(dyn)).strip()
-                            act_text = ''
-                            act_type = ''
+                                    matched_dyns = default_dyn  # 如果act没有n属性且不是内嵌，关联到所有没有n的dyn
 
-                            act_element = act_elements.get(n_value.strip() if n_value else None)
-                            if act_element is not None:
-                                act_text = html.unescape(get_element_text(act_element)).strip()
-                                act_type = act_element.get('type', '').strip()
-
-                            output_line = f"{nom_fichier}\t{i}\t{dyn_text}\t{act_text}\t{act_type}\n"
-                            output_file.write(output_line)
+                            for dyn in matched_dyns:
+                                dyn_text = html.unescape(get_element_text(dyn)).strip()
+                                output_line = f"{nom_fichier}\t{i}\t{dyn_text}\t{act_text}\t{act_type}\n"
+                                output_file.write(output_line)
 
 # 请替换为你的文件夹路径
 directory_path = '../../corpus_xml/CE'
