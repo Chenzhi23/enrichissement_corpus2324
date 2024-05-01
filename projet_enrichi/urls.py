@@ -21,5 +21,12 @@ from app01 import views
 urlpatterns = [
     # path("admin/", admin.site.urls),
     path('', views.index),
-    path('dynamique/', views.dynamique_list)
+    path('dynamique/', views.dynamique_list),
+    path('act/', views.act_list),
+    path('nouvelle/', views.nouvelle_list),
+    path('doc/', views.doc_list),
+    path('lieu/', views.lieu_list),
+    path('perc/', views.perc_list),
+    path('temps/', views.temps_list),
+    path('simple/', views.simple_list)
 ]
