@@ -86,18 +86,24 @@ def extract_nouvelle_content_to_tsv(folder_path, output_path):
                         cause_element = cause_elements.get(n_value.strip() if n_value else None)
                         if cause_element is not None:
                             cause_text = html.unescape(get_element_text(cause_element)).strip()
+                        else:
+                            cause_text = "none"
 
                         res_element = res_elements.get(n_value.strip() if n_value else None)
                         if res_element is not None:
                             res_text = html.unescape(get_element_text(res_element)).strip()
+                        else:
+                            res_text = "none"
 
                         obj_element = obj_elements.get(n_value.strip() if n_value else None)
                         if obj_element is not None:
                             obj_text = html.unescape(get_element_text(obj_element)).strip()
+                        else:
+                            obj_text = "none"
 
                         # 如果 cause、res 和 obj 内容都为空，则跳过写入
-                        if not any([cause_text, res_text, obj_text]):
-                            continue
+                        # if not any([cause_text, res_text, obj_text]):
+                        #     continue
 
                         # 格式化并写入数据
                         output_line = f"{nom_fichier}\t{i}\t{dyn_text}\t{cause_text}\t{res_text}\t{obj_text}\n"
