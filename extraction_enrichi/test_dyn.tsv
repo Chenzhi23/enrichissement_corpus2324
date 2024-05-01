@@ -1,0 +1,37 @@
+Nom_fichier	Numero_Phrase	Segment_Annoté	Accompli	Nature	Temps	Proces
+test.xml	1	Conserver toutes les frontières	non	maint		
+test.xml	1	conserver tous les gabarits	non	maint		
+test.xml	1	conserver toutes les campagnes	non	maint		
+test.xml	1	n'admettre la construction que parcimonieusement	non	crea		
+test.xml	2	la coordination et l'établissement des projets				
+test.xml	2	coordination du projet d'aménagement de la ville de Paris et du projet régional approuvé				
+test.xml	2	établissement du projet régional étendu à toute la région parisienne				
+test.xml	3	test pour nul n				
+test.xml	4	une décentralisation de certaines industries				
+test.xml	4	le maintien		maint		
+test.xml	4	le développement		crea		
+test.xml	5	construire des cités de 20 ou 30.000 habitants	non	crea		
+test.xml	5	organiser				
+test.xml	5	leur apporter des activités indispensables	non	crea		
+test.xml	6	une décentralisation vers la Province des activités secondaires et tertiaires				
+test.xml	6	un desserrement de la Capitale				
+test.xml	6	une réorganisation et à une restructuration de la banlieue	non	repr		iter
+test.xml	6	nouveaux noyaux urbains principaux et secondaires	non	crea	fut	
+test.xml	7	leur métamorphose progressive		modif		progr
+test.xml	7	le passage d'une ville de la production à une ville de la consommation	oui	modif		
+test.xml	8	façonnent le relief	non	modif		
+test.xml	8	plissent	non	modif		
+test.xml	8	perforent	non	modif		
+test.xml	8	produisent autant de ruptures à franchir que de situations à exploiter	non	modif		
+test.xml	9	Les grandes transformations en cours	non	modif		dur
+test.xml	9	reconstruire des continuitéstest obj test	non	repr		iter
+test.xml	9	renforcer les relations horizontales	non			
+test.xml	9	conformer les lieux en espaces de vie	non	modif		
+test.xml	9	stables	non	maint		
+test.xml	9	temporaires	non			
+test.xml	9	redécouvrir la forme du territoire				
+test.xml	10	proposons trois lignes de continuité principales	non			
+test.xml	10	prolongé	oui	crea		
+test.xml	10	en projet	non	crea		
+test.xml	11	est devenu un espace de liberté		modif		
+test.xml	12	n’ai d’ailleurs pas réalisé un seul parc ou jardin	non	crea		
