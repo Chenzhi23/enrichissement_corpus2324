@@ -15,7 +15,7 @@ Jinyu CONG
 <br>---> scripts finaux utilisés pour extraire les données et les sauvegarder dans des fichiers tsv
 
 
-## Index des dossiers
+## Organisation des dossiers
 ***Pour l'extraction des informations, les scripts finaux et leurs sorties finales se trouvent dans : ./extraction_enrichi/ver_parcourir.***
 
 ### 1. corpus
