@@ -4,7 +4,7 @@ import os
 
 
 def get_element_text(element):
-    """递归获取元素及其子元素的文本内容"""
+    """Récupère récursivement le texte de l'élément et de ses éléments enfants."""
     text = element.text or ""
     for child in element:
         text += get_element_text(child)
@@ -14,30 +14,27 @@ def get_element_text(element):
 
 
 def extract_nouvelle_content_to_tsv(folder_path, output_path):
-    # 打开一个文件用于写入提取的数据，包括标题行
+    # Ouvre un fichier pour écrire les données extraites, y compris la ligne d'en-tête
     with open(output_path, 'w', encoding='utf-8') as output_file:
-        # 写入标题行
         output_file.write("Nom_fichier\tNuméro_Phrase\tDynamique\tCause\tRes\tObj\n")
 
-        # 遍历文件夹中的每个文件
         for filename in os.listdir(folder_path):
             if filename.endswith('.xml'):
                 file_path = os.path.join(folder_path, filename)
-                # 从文件路径中提取文件名
+                # Extrait le nom de fichier du chemin du fichier
                 nom_fichier = os.path.basename(file_path)
 
-                # 加载并解析XML文件
                 tree = ET.parse(file_path)
                 root = tree.getroot()
 
-                # 遍历每个<phrase>元素
+                # Parcourt chaque élément <phrase>
                 for i, phrase in enumerate(root.findall('.//phrase'), start=1):
                     dyns = phrase.findall('.//dyn')
                     causes = phrase.findall('.//cause')
                     ress = phrase.findall('.//res')
                     objs = phrase.findall('.//obj')
 
-                    # 如果 cause、res 和 obj 都为空，则跳过 dyn 的内容
+                    # Si cause, res et obj sont tous vides, ignore le contenu de dyn
                     if not any([causes, ress, objs]):
                         continue
 
@@ -105,22 +102,19 @@ def extract_nouvelle_content_to_tsv(folder_path, output_path):
                         else:
                             obj_text = "none"
 
-                        # 如果 cause、res 和 obj 内容都为空，则跳过写入
+                        # Si le contenu de cause, res et obj est tous vide, saute l'écriture
                         # if not any([cause_text, res_text, obj_text]):
                         #     continue
 
 
-                        # 格式化并写入数据
+                        # Formate et écrit les données
                         output_line = f"{nom_fichier}\t{i}\t{dyn_text}\t{cause_text}\t{res_text}\t{obj_text}\n"
                         output_file.write(output_line)
 
 
-# 更新文件夹路径和输出文件路径
-input_folder_path = '../../corpus_xml/CE'  # 请替换为您的输入文件夹路径
-output_file_path = 'all_nouvelle.tsv'  # 请替换为您的输出文件路径
+input_folder_path = '../../corpus_xml/CE'
+output_file_path = 'all_nouvelle.tsv'
 
-# 调用函数
 extract_nouvelle_content_to_tsv(input_folder_path, output_file_path)
 
-# 输出文件路径以便检查
 print(f"Data extracted to: {output_file_path}")

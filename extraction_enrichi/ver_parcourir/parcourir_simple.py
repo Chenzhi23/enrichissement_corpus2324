@@ -3,7 +3,7 @@ import html
 import os
 
 def get_element_text(element):
-    """递归获取元素及其子元素的文本内容。"""
+    """Récupère récursivement le texte de l'élément et de ses éléments enfants."""
     text = element.text or ""
     for child in element:
         text += get_element_text(child)
@@ -12,14 +12,14 @@ def get_element_text(element):
     return text.strip()
 
 def parse_n_attribute(n_value):
-    """解析具有加号的n属性，返回所有可能的n值。
-       如果n_value为None，则返回一个空列表。"""
+    """Analyse l'attribut n avec des valeurs séparées par un signe plus (+) et renvoie toutes les valeurs possibles de n.
+       Si n_value est None, renvoie une liste vide."""
     if n_value and '+' in n_value:
         return n_value.split('+')
     return [n_value] if n_value else []
 
 def extract_content_to_tsv(directory_path, output_path):
-    """遍历文件夹中的所有XML文件，提取内容，并将其保存到一个TSV文件中。"""
+    """Parcourt tous les fichiers XML du dossier spécifié, extrait le contenu et l'enregistre dans un fichier TSV."""
     with open(output_path, 'w', encoding='utf-8') as output_file:
         output_file.write("Nom_fichier\tNuméro_Phrase\tDynamique\tLieu_objet\tLieu_loc\tTemps\tActeur\tPerc\tDoc\n")
 
@@ -56,7 +56,7 @@ def extract_content_to_tsv(directory_path, output_path):
                                 else:
                                     elements_dict[None] = html.unescape(get_element_text(element))
 
-                        # 输出数据
+                        # Écriture des données
                         if dyn_elements:
                             for n_value, dyn_text in dyn_elements.items():
                                 lieu_obj_text = lieu_obj_elements.get(n_value, '')
@@ -69,7 +69,6 @@ def extract_content_to_tsv(directory_path, output_path):
                                 output_line = f"{nom_fichier}\t{i}\t{dyn_text}\t{lieu_obj_text}\t{lieu_loc_text}\t{tps_text}\t{act_text}\t{perc_text}\t{doc_text}\n"
                                 output_file.write(output_line)
 
-# 请替换为你的文件夹路径
 directory_path = '../../corpus_xml/simple'
 output_file_path = 'all_simple.tsv'
 

@@ -3,7 +3,6 @@ import html
 import os
 
 def get_element_text(element):
-    """递归获取元素及其子元素的文本内容。"""
     text = element.text or ""
     for child in element:
         text += get_element_text(child)
@@ -12,7 +11,6 @@ def get_element_text(element):
     return text.strip()
 
 def extract_tps_content_to_tsv(file_path, output_path):
-    """从XML文件中提取act内容，并将其保存到TSV文件中。"""
     nom_fichier = os.path.basename(file_path)
     tree = ET.parse(file_path)
     root = tree.getroot()
@@ -25,14 +23,14 @@ def extract_tps_content_to_tsv(file_path, output_path):
             tpss = phrase.findall('.//tps')
 
             tps_elements = {}
-            if tpss:  # 如果存在<act>，则处理它
+            if tpss:
                 for tps in tpss:
                     n = tps.get('n')
-                    if n:  # 检查n是否存在
+                    if n:
                         n_values = n.split('+')
                         for n_value in n_values:
                             tps_elements[n_value.strip()] = tps
-                    else:  # 如果没有n属性，则直接匹配dyn内容
+                    else:
                         tps_elements[None] = tps
             else:
                 continue
@@ -56,7 +54,6 @@ def extract_tps_content_to_tsv(file_path, output_path):
                 output_line = f"{nom_fichier}\t{i}\t{dyn_text}\t{tps_text}\t{tps_axetemp}\t{tps_absolu}\t{tps_type}\n"
                 output_file.write(output_line)
 
-# 请替换为你的文件路径
 input_file_path = 'test.xml'
 output_file_path = 'test_tps.tsv'
 

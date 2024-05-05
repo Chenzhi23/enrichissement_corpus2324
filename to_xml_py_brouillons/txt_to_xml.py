@@ -2,42 +2,40 @@ import xml.etree.ElementTree as ET
 from xml.dom import minidom
 import sys
 
-# 用于美化XML输出的函数
+# Fonction pour formater joliment la sortie XML
 def prettify(elem):
     rough_string = ET.tostring(elem, 'utf-8')
     reparsed = minidom.parseString(rough_string)
     return reparsed.toprettyxml(indent="  ")
 
 def process_file(input_file, output_file):
-    # 创建XML的根元素
     root = ET.Element('root')
 
-    # 读取并处理文件
     with open(input_file, 'r', encoding='utf-8') as file:
-        paragraph_elem = None  # 初始化段落元素变量
+        paragraph_elem = None  # Initialisation de la variable d'élément de paragraphe
         for line in file:
-            line = line.strip()  # 删除行首尾的空格
+            line = line.strip()  # Supprimer les espaces au début et à la fin de la ligne
             if not line:
-                # 空行，表示一个新的段落开始
-                paragraph_elem = None  # 重置段落元素
+                # Ligne vide, indique le début d'un nouveau paragraphe
+                paragraph_elem = None  # Réinitialisation de l'élément de paragraphe
                 continue
 
             if paragraph_elem is None:
-                # 如果当前没有段落元素，创建一个新的
+                # S'il n'y a pas d'élément de paragraphe actuel, en créer un nouveau
                 paragraph_elem = ET.SubElement(root, 'Paragraphe')
 
-            # 为当前行（句子）创建一个句子元素
+            # Créer un élément de phrase pour la ligne (phrase) actuelle
             sentence_elem = ET.SubElement(paragraph_elem, 'Phrase')
             sentence_elem.text = line
 
-    # 美化XML并写入文件
+    # Formater joliment le XML et écrire dans un fichier
     xml_str = prettify(root)
     with open(output_file, 'w', encoding='utf-8') as output_file:
         output_file.write(xml_str)
 
 def main():
     if len(sys.argv) != 3:
-        print("Usage: python script_name.py input_file output_file")
+        print("Utilisation : python nom_du_script.py fichier_entree fichier_sortie")
     else:
         input_file = sys.argv[1]
         output_file = sys.argv[2]

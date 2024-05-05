@@ -4,7 +4,6 @@ import os
 
 
 def get_element_text(element):
-    """递归获取元素及其子元素的文本内容。"""
     text = element.text or ""
     for child in element:
         text += get_element_text(child)
@@ -14,7 +13,6 @@ def get_element_text(element):
 
 
 def extract_lieu_content_to_tsv(file_path, output_path):
-    """从XML文件中提取act内容，并将其保存到TSV文件中。"""
     nom_fichier = os.path.basename(file_path)
     tree = ET.parse(file_path)
     root = tree.getroot()
@@ -27,14 +25,14 @@ def extract_lieu_content_to_tsv(file_path, output_path):
             lieux = phrase.findall('.//lieu')
 
             lieu_elements = {}
-            if lieux:  # 如果存在<lieu>，则处理它
+            if lieux:
                 for lieu in lieux:
                     n = lieu.get('n')
-                    if n:  # 检查n是否存在
+                    if n:
                         n_values = n.split('+')
                         for n_value in n_values:
                             lieu_elements[n_value.strip()] = lieu
-                    else:  # 如果没有n属性，则直接匹配dyn内容
+                    else:
                         lieu_elements[None] = lieu
             else:
                 continue
@@ -54,7 +52,6 @@ def extract_lieu_content_to_tsv(file_path, output_path):
                 output_file.write(output_line)
 
 
-# 请替换为你的文件路径
 input_file_path = 'test.xml'
 output_file_path = 'test_lieu.tsv'
 

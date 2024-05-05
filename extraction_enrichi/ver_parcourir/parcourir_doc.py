@@ -3,7 +3,7 @@ import html
 import os
 
 def get_element_text(element):
-    """递归获取元素及其子元素的文本内容。"""
+    """Récupère récursivement le texte de l'élément et de ses éléments enfants."""
     text = element.text or ""
     for child in element:
         text += get_element_text(child)
@@ -12,7 +12,7 @@ def get_element_text(element):
     return text.strip()
 
 def extract_doc_content_to_tsv(directory_path, output_path):
-    """遍历指定文件夹中的所有XML文件，提取doc内容，并将其保存到一个TSV文件中。"""
+    """Parcourt tous les fichiers XML dans le dossier spécifié, extrait le contenu doc et le sauvegarde dans un fichier TSV."""
     with open(output_path, 'w', encoding='utf-8') as output_file:
         output_file.write("Nom_fichier\tNumero_Phrase\tDynamique\tDoc_Text\n")
 
@@ -28,7 +28,7 @@ def extract_doc_content_to_tsv(directory_path, output_path):
                         dyns = phrase.findall('.//dyn')
                         docs = phrase.findall('.//doc')
 
-                        # 将dyn和act根据n属性或内部关系进行匹配
+                        # Faire correspondre les dyns et les docs en fonction de l'attribut n ou de la relation interne
                         dyn_map = {dyn.get('n'): dyn for dyn in dyns if dyn.get('n')}
                         default_dyn = [dyn for dyn in dyns if not dyn.get('n')]
 
@@ -50,7 +50,6 @@ def extract_doc_content_to_tsv(directory_path, output_path):
                                 output_line = f"{nom_fichier}\t{i}\t{dyn_text}\t{doc_text}\n"
                                 output_file.write(output_line)
 
-# 请替换为你的文件夹路径
 directory_path = '../../corpus_xml/CE'
 output_file_path = 'all_docs.tsv'
 

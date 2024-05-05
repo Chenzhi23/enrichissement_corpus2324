@@ -3,7 +3,7 @@ import html
 import os
 
 def get_element_text(element):
-    """递归获取元素及其子元素的文本内容。"""
+    """Récupère récursivement le texte de l'élément et de ses éléments enfants."""
     text = element.text or ""
     for child in element:
         text += get_element_text(child)
@@ -13,7 +13,7 @@ def get_element_text(element):
 
 
 def extract_tps_content_to_tsv(directory_path, output_path):
-    """Extracts 'tps' content from all XML files in a directory and saves it to a TSV file."""
+    """Parcourt tous les fichiers XML dans le dossier spécifié, extrait le contenu tps et le sauvegarde dans un fichier TSV."""
     with open(output_path, 'w', encoding='utf-8') as output_file:
         output_file.write("Nom_fichier\tNuméro_Phrase\tDynamique\tSegment_Annoté\taxe_temp\tabsolu\tType\n")
 
@@ -29,7 +29,7 @@ def extract_tps_content_to_tsv(directory_path, output_path):
                         dyns = phrase.findall('.//dyn')
                         tpss = phrase.findall('.//tps')
 
-                        # Mapping 'n' values to tps elements
+                        # Faire correspondre les dyns et les tps en fonction de l'attribut n ou de la relation interne
                         tps_map = {tps.get('n'): tps for tps in tpss if tps.get('n')}
                         default_tps = [tps for tps in tpss if not tps.get('n')]
 
@@ -41,22 +41,21 @@ def extract_tps_content_to_tsv(directory_path, output_path):
                             if dyn_n and dyn_n in tps_map:
                                 matched_tpss.append(tps_map[dyn_n])
                             elif not dyn_n:
-                                # Check if tps is nested within this dyn
+                                # Vérifier si le tps est imbriqué dans un dyn
                                 matched_tpss = [tps for tps in default_tps if dyn in list(tps.iter())]
                                 if not matched_tpss:
-                                    matched_tpss = default_tps  # Associate all default tpss if no nesting
+                                    matched_tpss = default_tps
 
                             for tps in matched_tpss:
                                 tps_text = html.unescape(get_element_text(tps)).strip()
                                 tps_axetemp = tps.get('axe_temp', '').strip()
                                 tps_absolu = tps.get('absolu', '').strip()
                                 tps_type = tps.get('type', '').strip()
-                                if tps_text:  # Ensure there's text to output
+                                if tps_text:
                                     output_line = f"{nom_fichier}\t{i}\t{dyn_text}\t{tps_text}\t{tps_axetemp}\t{tps_absolu}\t{tps_type}\n"
                                     output_file.write(output_line)
 
 
-# 请替换为你的文件夹路径
 directory_path = '../../corpus_xml/CE'
 output_file_path = 'all_tps.tsv'
 

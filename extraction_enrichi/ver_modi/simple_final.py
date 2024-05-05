@@ -3,7 +3,6 @@ import html
 import os
 
 def get_element_text(element):
-    """递归获取元素及其子元素的文本内容"""
     text = element.text or ""
     for child in element:
         text += get_element_text(child)
@@ -12,8 +11,6 @@ def get_element_text(element):
     return text
 
 def parse_n_attribute(n_value):
-    """解析具有加号的n属性，返回所有可能的n值。
-       如果n_value为None，则返回一个空列表。"""
     if n_value and '+' in n_value:
         return n_value.split('+')
     return [n_value] if n_value else []
@@ -68,7 +65,6 @@ def extract_content_to_tsv(file_path, output_path):
                 if doc_n:
                     doc_elements[doc_n] = html.unescape(get_element_text(doc))
 
-            # 确保至少存在一个dyn
             if dyn_elements:
                 for n_value, dyn_text in dyn_elements.items():
                     lieu_obj_text = lieu_obj_elements.get(n_value, '')
@@ -81,17 +77,13 @@ def extract_content_to_tsv(file_path, output_path):
                     output_line = f"{nom_fichier}\t{i}\t{dyn_text}\t{lieu_obj_text}\t{lieu_loc_text}\t{tps_text}\t{act_text}\t{perc_text}\t{doc_text}\n"
                     output_file.write(output_line)
             #else:
-                # 如果没有dyn，仍写入一行仅含Numéro_Phrase和Nom_fichier
                 #output_file.write(f"{nom_fichier}\t{i}\t\t\t\t\t\t\t\n")
 
-# 替换为您的文件路径
 input_file_path = '1959-MinistereConstructionNoteEtudeINSEE_20230710.xml'
 output_file_path = 'test_simple.tsv'
 
-# 调用函数
 extract_content_to_tsv(input_file_path, output_file_path)
 
-# 输出文件路径以便检查
 print(f"Data extracted to: {output_file_path}")
 
 
