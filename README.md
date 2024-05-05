@@ -6,8 +6,11 @@ Jinyu CONG
 <br>Chenzhi SUN
 <br>Yu ZHANG
 
-### Les scripts finaux pour que notre page web puisse se connecter à la base de données backend se trouvent dans la branche "Jinyu". 
-### Les scripts finaux sur l'extraction des données se trouvent dans cette branche courante "main": 
+
+### Les scripts finaux pour que notre page web puisse se connecter à la base de données backend se trouvent :
+
+- ./interface
+### Les scripts finaux sur l'extraction des données se trouvent : 
 
 - ./txt_to_xml_node_virgule.py
 <br>---> script final utilisé pour convertir le corpus du format txt au format xml
@@ -61,16 +64,16 @@ Ce dossier contient le script pour extraire les informations des corpus simples,
 
 Le script présent ici ne permet que de lire un fichier déterminé, pas de parcourir un corpus. Pour parcourir les corpus simples, le script se trouve dans le dossier : **../extraction_enrichi/ver_parcourir**.
 
-### 5. to_xml_py_brouillons
-Ce dossier contient les brouillons avant d'obtenir le script **../txt_to_xml_node_virgule.py**. 
-
-### 6. interface
+### 5. interface
 Ce dossier contient l'interface du projet. Entrer dans la racine de ce dossier et l'ouvrir avec pycharm et cliquer sur run ```manage.py``` qui
 est dans l'onglet "tools", pycharm va ouvrir une fenêtre de commande et taper "```runserver```", l'interface va être excécuté. 
 
-Dans le dossier database, qui contient un script python qui sert à importer les tableaux dans la base de donnée, et 8 tableaux après extraction.
+Dans le dossier **database**, qui contient un script python qui sert à importer les tableaux dans la base de donnée, et 8 tableaux après extraction.
 
-Dans la dossier app01, ```models.py``` sert à construire les modèles de tableaux de base de donnée, views.py sert à communiquer entre frontend et backend.
+Dans la dossier **app01**, ```models.py``` sert à construire les modèles de tableaux de base de donnée, views.py sert à communiquer entre frontend et backend.
 templates contient les frontend html, static contient les images du web.
 
-Et finalement le dossier projet_entichi sert principalement à paramétrer le projet, en incluant les paramétrage de la base de donnée, les percours du web etc.
+Et finalement le dossier **projet_entichi** sert principalement à paramétrer le projet, en incluant les paramétrage de la base de donnée, les percours du web etc.
+
+### 6. to_xml_py_brouillons
+Ce dossier contient les brouillons avant d'obtenir le script **../txt_to_xml_node_virgule.py**. 
